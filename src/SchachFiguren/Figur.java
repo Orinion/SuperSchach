@@ -11,7 +11,10 @@ package SchachFiguren;
  */
 public abstract class  Figur {
     public abstract boolean istSchwarz();
-    public abstract void machSchwarz(boolean b);
+    public abstract int gibPosX();
+    public abstract int gibPosY();
+    public abstract void setzePosX(int i);
+    public abstract void setzePosY(int i);
     public abstract void setzeBenutzteFelder(int i);
     public abstract int gibBenutzteFelder();
     public abstract int gibBewegungen();

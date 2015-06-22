@@ -12,12 +12,15 @@ package SchachFiguren;
 public class Koenig extends Figur{
     
     private final String name;
-    private boolean istSchwarz;
+    private final boolean istSchwarz;
     private int benutzteFelder;
     private int bewegungen;
+    private int posX;
+    private int posY;
 
-    public Koenig(String name) {
+    public Koenig(String name, boolean schwarz) {
         this.name = name;
+        istSchwarz = schwarz;
     }
     
     @Override
@@ -61,11 +64,6 @@ public class Koenig extends Figur{
     }
 
     @Override
-    public void machSchwarz(boolean b) {
-        istSchwarz = b;
-    }
-
-    @Override
     public void entfernen() {
         //Figur weg undso....
     }
@@ -74,5 +72,25 @@ public class Koenig extends Figur{
     public Figur gibNaechste() {
         //Ernie prüft wo der nächste ist und returnt den
         return null;
+    }
+
+    @Override
+    public int gibPosX() {
+        return posX;
+    }
+
+    @Override
+    public int gibPosY() {
+        return posY;
+    }
+
+    @Override
+    public void setzePosX(int i) {
+        posX = i;
+    }
+
+    @Override
+    public void setzePosY(int i) {
+        posY = i;
     }
 }

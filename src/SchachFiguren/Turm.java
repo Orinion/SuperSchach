@@ -13,12 +13,15 @@ public class Turm extends Figur{
 
         
     private final String name;
-    private boolean istSchwarz;
+    private final boolean istSchwarz;
     private int benutzteFelder;
     private int bewegungen;
+    private int posX;
+    private int posY;
 
-    public Turm(String name) {
+    public Turm(String name, boolean schwarz) {
         this.name = name;
+        istSchwarz = schwarz;
     }
     
     @Override
@@ -62,11 +65,6 @@ public class Turm extends Figur{
     }
 
     @Override
-    public void machSchwarz(boolean b) {
-        istSchwarz = b;
-    }
-
-    @Override
     public void entfernen() {
         //Figur weg undso....
     }
@@ -75,5 +73,25 @@ public class Turm extends Figur{
     public Figur gibNaechste() {
         //Ernie prüft wo der nächste ist und returnt den
         return null;
+    }
+
+    @Override
+    public int gibPosX() {
+        return posX;
+    }
+
+    @Override
+    public int gibPosY() {
+        return posY;
+    }
+
+    @Override
+    public void setzePosX(int i) {
+        posX = i;
+    }
+
+    @Override
+    public void setzePosY(int i) {
+        posY = i;
     }
 }
