@@ -10,5 +10,6 @@ package SchachFiguren;
  * @author Physik
  */
 public abstract class  Figur {
-    
+    @Override
+    public abstract String toString();
 }
