@@ -9,16 +9,16 @@ package SchachFiguren;
  *
  * @author Markus
  */
-public class Läufer extends Figur{
+public class Laeufer extends Figur{
     
     private final String name;
-    private final boolean istSchwarz;
+    private boolean istSchwarz;
     private int benutzteFelder;
     private int bewegungen;
     private int posX;
     private int posY;
 
-    public Läufer(String name, boolean schwarz) {
+    public Laeufer(String name, boolean schwarz) {
         this.name = name;
         istSchwarz = schwarz;
     }
@@ -92,5 +92,10 @@ public class Läufer extends Figur{
     @Override
     public void setzePosY(int i) {
         posY = i;
+    }
+
+    @Override
+    public void machSchwarz(boolean s) {
+        istSchwarz = s;
     }
 }

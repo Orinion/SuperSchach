@@ -13,7 +13,7 @@ public class Springer extends Figur{
 
         
     private final String name;
-    private final boolean istSchwarz;
+    private boolean istSchwarz;
     private int benutzteFelder;
     private int bewegungen;
     private int posX;
@@ -93,5 +93,10 @@ public class Springer extends Figur{
     @Override
     public void setzePosY(int i) {
         posY = i;
+    }
+
+    @Override
+    public void machSchwarz(boolean s) {
+        istSchwarz = s;
     }
 }

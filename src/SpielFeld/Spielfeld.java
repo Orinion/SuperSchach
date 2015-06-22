@@ -5,6 +5,11 @@
  */
 package SpielFeld;
 
+
+import Ereigniskarten.*;
+import SchachFiguren.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Physik
@@ -14,9 +19,34 @@ public class Spielfeld extends javax.swing.JFrame {
     /**
      * Creates new form Spielfeld
      */
+    public ArrayList<Figur> teamWeiss;
+    public ArrayList<Figur> teamSchwarz;
+    
     public Spielfeld() {
         initComponents();
         initFeld();
+        teamWeiss = new ArrayList<>();
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Bauer("Bauer", false));
+        teamWeiss.add(new Turm("Turm", false));
+        teamWeiss.add(new Springer("Springer", false));
+        teamWeiss.add(new Laeufer("Läufer", false));
+        teamWeiss.add(new Koenig("König", false));
+        teamWeiss.add(new Dame("Dame", false));
+        teamWeiss.add(new Laeufer("Läufer", false));
+        teamWeiss.add(new Springer("Springer", false));
+        teamWeiss.add(new Turm("Turm", false));
+        teamSchwarz = teamWeiss;
+        for(Figur f: teamSchwarz)
+        {
+            f.machSchwarz(true);
+        }
     }
 
     /**
@@ -60,7 +90,7 @@ public class Spielfeld extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void initFeld() {
