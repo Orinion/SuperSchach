@@ -14,6 +14,8 @@ public abstract class  Figur {
     public abstract String toString();
     public abstract void setzeBenutzteFelder(int i);
     public abstract int gibBenutzteFelder();
+    public abstract int gibBewegungen();
+    public abstract void setzeBewegungen(int i);
     public abstract void bewegen();
     public abstract void schlagen();    
 }

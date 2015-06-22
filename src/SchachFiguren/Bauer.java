@@ -13,6 +13,7 @@ public class Bauer extends Figur{
     
     private final String name;
     private int benutzteFelder;
+    private int bewegungen;
 
     public Bauer(String pName) {
         name = pName;
@@ -30,7 +31,12 @@ public class Bauer extends Figur{
 
     @Override
     public void bewegen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (bewegungen == 0) {
+            //2 Felder nach vorne
+        }
+        else {
+            //ein Feld nach vorne
+        }
     }
 
     @Override
@@ -41,5 +47,15 @@ public class Bauer extends Figur{
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public int gibBewegungen() {
+        return bewegungen;
+    }
+
+    @Override
+    public void setzeBewegungen(int i) {
+        bewegungen = i;
     }
 }
