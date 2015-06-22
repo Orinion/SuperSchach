@@ -11,34 +11,24 @@ package SchachFiguren;
  */
 public class Turm extends Figur{
 
-    @Override
-    public boolean istSchwarz() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        
+    private final String name;
+    private boolean istSchwarz;
+    private int benutzteFelder;
+    private int bewegungen;
 
-    @Override
-    public void machSchwarz(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Turm(String name) {
+        this.name = name;
     }
-
+    
     @Override
     public void setzeBenutzteFelder(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        benutzteFelder = i;
     }
 
     @Override
     public int gibBenutzteFelder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int gibBewegungen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setzeBewegungen(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return benutzteFelder;
     }
 
     @Override
@@ -50,10 +40,29 @@ public class Turm extends Figur{
     public void schlagen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return name;
     }
-    
+
+    @Override
+    public int gibBewegungen() {
+        return bewegungen;
+    }
+
+    @Override
+    public void setzeBewegungen(int i) {
+        bewegungen = i;
+    }
+
+    @Override
+    public boolean istSchwarz() {
+        return istSchwarz;
+    }
+
+    @Override
+    public void machSchwarz(boolean b) {
+        istSchwarz = b;
+    }
 }
