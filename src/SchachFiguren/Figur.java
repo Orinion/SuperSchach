@@ -12,6 +12,8 @@ package SchachFiguren;
 public abstract class  Figur {
     @Override
     public abstract String toString();
-    public String usedFields;
-    public int penis;
+    public abstract void setzeBenutzteFelder(int i);
+    public abstract int gibBenutzteFelder();
+    public abstract void bewegen();
+    public abstract void schlagen();    
 }
