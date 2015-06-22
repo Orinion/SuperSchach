@@ -18,6 +18,8 @@ public abstract class  Figur {
     public abstract void setzeBewegungen(int i);
     public abstract void bewegen();
     public abstract void schlagen();
+    public abstract void entfernen();
+    public abstract Figur gibNaechste();
     @Override
     public abstract String toString();
 }

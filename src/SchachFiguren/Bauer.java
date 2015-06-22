@@ -69,4 +69,15 @@ public class Bauer extends Figur{
     public void machSchwarz(boolean b) {
         istSchwarz = b;
     }
+
+    @Override
+    public void entfernen() {
+        //Figur weg undso....
+    }
+
+    @Override
+    public Figur gibNaechste() {
+        //Ernie prüft wo der nächste ist und returnt den
+        return null;
+    }
 }
