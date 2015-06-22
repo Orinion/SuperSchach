@@ -12,6 +12,7 @@ package SchachFiguren;
 public class Bauer extends Figur{
     
     private final String name;
+    private boolean istSchwarz;
     private int benutzteFelder;
     private int bewegungen;
 
@@ -57,5 +58,15 @@ public class Bauer extends Figur{
     @Override
     public void setzeBewegungen(int i) {
         bewegungen = i;
+    }
+
+    @Override
+    public boolean istSchwarz() {
+        return istSchwarz;
+    }
+
+    @Override
+    public void machSchwarz(boolean b) {
+        istSchwarz = b;
     }
 }

@@ -10,12 +10,14 @@ package SchachFiguren;
  * @author Physik
  */
 public abstract class  Figur {
-    @Override
-    public abstract String toString();
+    public abstract boolean istSchwarz();
+    public abstract void machSchwarz(boolean b);
     public abstract void setzeBenutzteFelder(int i);
     public abstract int gibBenutzteFelder();
     public abstract int gibBewegungen();
     public abstract void setzeBewegungen(int i);
     public abstract void bewegen();
-    public abstract void schlagen();    
+    public abstract void schlagen();
+    @Override
+    public abstract String toString();
 }
