@@ -19,7 +19,7 @@ public class Control {
         for(int i=0;i<8;i++)
             Feld[1][i]=new Bauer("B", false);
         for(int i=0;i<8;i++)
-            Feld[1][i]=new Bauer("B", true);
+            Feld[6][i]=new Bauer("B", true);
         Feld[0][0]= new Turm("T", false);
         Feld[0][7]= new Turm("T", false);
         Feld[7][0]= new Turm("T", true);
@@ -40,14 +40,18 @@ public class Control {
         
     }
 
+    @Override
     public String toString()
     {
         String ergebnis="";
         for(int i=7;i>=0;i--)
         {       
-            for(int j=7;j>=0;j--)
-                ergebnis+=Feld[i][j].toString();
-            ergebnis+="\n";
+            for(int j=0;j<8;j++)
+                if(Feld[i][j]!=null)
+                    ergebnis+=Feld[i][j].toString();
+                else
+                    ergebnis+=" ";
+
         }
         return ergebnis;
     }
