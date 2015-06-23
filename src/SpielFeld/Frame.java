@@ -37,16 +37,16 @@ public class Frame extends javax.swing.JFrame {
 });
     }
 
-    private void toTable()
-    {
+    private void toTable() {
         String[] s = con.toString().split("\n");
-        for(int j = 0; j < s.length; j++){
+        for (int j = 0; j < s.length; j++) {
             String w = s[j];
-            for(int i = 0; i<8; i++)
+            for (int i = 0; i < 8; i++) {
                 jTable1.setValueAt(w.charAt(i), j, i);
+            }
         }
     }
-    
+
     private void zahlen() {
         for (int i = 0; i < 8; i++) {
             jTable1.setValueAt(i + 1, i, 0);
@@ -179,6 +179,14 @@ public class Frame extends javax.swing.JFrame {
         this.toTable();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
+
+    }//GEN-LAST:event_jTable1FocusGained
+
+    private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
+        
+    }//GEN-LAST:event_jTable1MouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -221,31 +229,31 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-static class MyTableModel extends DefaultTableModel {
-
-        List<Color> rowColours = Arrays.asList(
-                Color.RED,
-                Color.GREEN,
-                Color.CYAN
-        );
-        
-        public void set()
-        {
-            
-        }
-
-        public void setRowColour(int row, Color c) {
-            rowColours.set(row, c);
-            fireTableRowsUpdated(row, row);
-        }
-
-        public Color getRowColour(int row) {
-            return rowColours.get(row);
-        }
-
-        @Override
-        public Object getValueAt(int row, int column) {
-            return String.format("%d %d", row, column);
-        }
-    }
+//static class MyTableModel extends DefaultTableModel {
+//
+//        List<Color> rowColours = Arrays.asList(
+//                Color.RED,
+//                Color.GREEN,
+//                Color.CYAN
+//        );
+//        
+//        public void set()
+//        {
+//            
+//        }
+//
+//        public void setRowColour(int row, Color c) {
+//            rowColours.set(row, c);
+//            fireTableRowsUpdated(row, row);
+//        }
+//
+//        public Color getRowColour(int row) {
+//            return rowColours.get(row);
+//        }
+//
+//        @Override
+//        public Object getValueAt(int row, int column) {
+//            return String.format("%d %d", row, column);
+//        }
+//    }
 }
