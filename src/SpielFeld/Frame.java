@@ -25,16 +25,16 @@ public class Frame extends javax.swing.JFrame {
         System.out.println(c.toString());
     }
 
-    private void toTable()
-    {
+    private void toTable() {
         String[] s = con.toString().split("\n");
-        for(int j = 0; j < s.length; j++){
+        for (int j = 0; j < s.length; j++) {
             String w = s[j];
-            for(int i = 0; i<8; i++)
+            for (int i = 0; i < 8; i++) {
                 jTable1.setValueAt(w.charAt(i), j, i);
+            }
         }
     }
-    
+
     private void zahlen() {
         for (int i = 0; i < 8; i++) {
             jTable1.setValueAt(i + 1, i, 0);
@@ -83,6 +83,16 @@ public class Frame extends javax.swing.JFrame {
             }
         });
         jTable1.setRowHeight(50);
+        jTable1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTable1FocusGained(evt);
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTable1MouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
@@ -123,6 +133,14 @@ public class Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
+
+    }//GEN-LAST:event_jTable1FocusGained
+
+    private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
+        
+    }//GEN-LAST:event_jTable1MouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -162,31 +180,31 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-static class MyTableModel extends DefaultTableModel {
-
-        List<Color> rowColours = Arrays.asList(
-                Color.RED,
-                Color.GREEN,
-                Color.CYAN
-        );
-        
-        public void set()
-        {
-            
-        }
-
-        public void setRowColour(int row, Color c) {
-            rowColours.set(row, c);
-            fireTableRowsUpdated(row, row);
-        }
-
-        public Color getRowColour(int row) {
-            return rowColours.get(row);
-        }
-
-        @Override
-        public Object getValueAt(int row, int column) {
-            return String.format("%d %d", row, column);
-        }
-    }
+//static class MyTableModel extends DefaultTableModel {
+//
+//        List<Color> rowColours = Arrays.asList(
+//                Color.RED,
+//                Color.GREEN,
+//                Color.CYAN
+//        );
+//        
+//        public void set()
+//        {
+//            
+//        }
+//
+//        public void setRowColour(int row, Color c) {
+//            rowColours.set(row, c);
+//            fireTableRowsUpdated(row, row);
+//        }
+//
+//        public Color getRowColour(int row) {
+//            return rowColours.get(row);
+//        }
+//
+//        @Override
+//        public Object getValueAt(int row, int column) {
+//            return String.format("%d %d", row, column);
+//        }
+//    }
 }
