@@ -16,11 +16,12 @@ public class Frame extends javax.swing.JFrame {
     Control con;
 
     public Frame() {
-        cellRender = new DefaultTableCellRenderer();
+        SchachRenderer r = new SchachRenderer();
         con = new Control();
         initComponents();
         this.toTable();
         Class c = jTable1.getValueAt(0, 0).getClass();
+        jTable1.setDefaultRenderer(Object.class, r);
         System.out.println(c.toString());
     }
 
