@@ -42,12 +42,6 @@ public class Frame extends javax.swing.JFrame {
         }
     }
 
-    private void zahlen() {
-        for (int i = 0; i < 8; i++) {
-            jTable1.setValueAt(i + 1, i, 0);
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,6 +91,11 @@ public class Frame extends javax.swing.JFrame {
         });
         jTable1.setRowHeight(50);
         jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTable1MouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
@@ -171,10 +170,8 @@ public class Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (JOptionPane.showConfirmDialog(this, "Wollen Sie das Programm "
-                + "wirklich beenden?", "Warnung", JOptionPane.YES_NO_OPTION) == 0) {
+        //if (JOptionPane.showConfirmDialog(this, "Wollen Sie das Programm wirklich beenden?", "Warnung", JOptionPane.YES_NO_OPTION) == 0)
             this.dispose();
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -186,6 +183,11 @@ public class Frame extends javax.swing.JFrame {
                 + "fressen Sie die Packungs-\nbeilage und erschlagen Sie Ihren "
                 + "Arzt oder Apotheker.", "ALARM!", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
+        char f = (char)jTable1.getValueAt(jTable1.getSelectedRow(), jTable1.getSelectedColumn());
+        System.out.println(f);
+    }//GEN-LAST:event_jTable1MouseReleased
 
     /**
      * @param args the command line arguments

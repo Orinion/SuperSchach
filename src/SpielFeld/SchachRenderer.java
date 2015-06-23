@@ -7,6 +7,7 @@ package SpielFeld;
 
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -17,23 +18,30 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class SchachRenderer extends DefaultTableCellRenderer {
 
+    public SchachRenderer() {
+        super();
+    }
+
+    public void setValue(Object value) {
+        if (value == null) {
+            setText("");
+        } else {
+            setIcon((Icon)value);
+        }
+    }
+
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         //Cell x = (Cell)c;
         this.setHorizontalAlignment(JLabel.CENTER);
-       if(hasFocus)
-        {
+        if (hasFocus) {
             c.setForeground(Color.BLACK);
             c.setBackground(Color.GREEN);
-            
-        }
-       else
-            if ((row + column)%2!=0) {
+
+        } else if ((row + column) % 2 != 0) {
             c.setForeground(Color.BLACK);
             c.setBackground(Color.WHITE);
-        }
-        else
-        {
+        } else {
             c.setForeground(Color.WHITE);
             c.setBackground(Color.BLACK);
         }
