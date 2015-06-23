@@ -26,15 +26,15 @@ public class Frame extends javax.swing.JFrame {
         Class c = jTable1.getValueAt(0, 0).getClass();
         jTable1.setDefaultRenderer(Object.class, r);
         System.out.println(c.toString());
-        
+
         this.addWindowListener(new WindowAdapter() {
 
             @Override
             public void windowClosing(WindowEvent we) {
                 dispose();
             }
-            
-});
+
+        });
     }
 
     private void toTable() {
@@ -130,6 +130,11 @@ public class Frame extends javax.swing.JFrame {
         });
 
         jButton2.setText("Hilfe");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Feld zurücksetzen");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -171,21 +176,21 @@ public class Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(JOptionPane.showConfirmDialog(this, "Wollen Sie das Programm wirklich beenden?", "Warnung", JOptionPane.YES_NO_OPTION) == 0)
+        if (JOptionPane.showConfirmDialog(this, "Wollen Sie das Programm "
+                + "wirklich beenden?", "Warnung", JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.toTable();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
-
-    }//GEN-LAST:event_jTable1FocusGained
-
-    private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
-        
-    }//GEN-LAST:event_jTable1MouseReleased
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(this, "Wegen der riesigen Nebenwirkungen "
+                + "fressen Sie die Packungs-\nbeilage und erschlagen Sie Ihren "
+                + "Arzt oder Apotheker.", "ALARM!", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,31 +234,4 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-//static class MyTableModel extends DefaultTableModel {
-//
-//        List<Color> rowColours = Arrays.asList(
-//                Color.RED,
-//                Color.GREEN,
-//                Color.CYAN
-//        );
-//        
-//        public void set()
-//        {
-//            
-//        }
-//
-//        public void setRowColour(int row, Color c) {
-//            rowColours.set(row, c);
-//            fireTableRowsUpdated(row, row);
-//        }
-//
-//        public Color getRowColour(int row) {
-//            return rowColours.get(row);
-//        }
-//
-//        @Override
-//        public Object getValueAt(int row, int column) {
-//            return String.format("%d %d", row, column);
-//        }
-//    }
 }
