@@ -5,6 +5,8 @@
  */
 package SchachFiguren;
 
+import SpielFeld.Control;
+
 /**
  *
  * @author Markus
@@ -14,70 +16,37 @@ public class Bauer extends Figur{
     private final String name;
     private boolean istSchwarz;
     private int benutzteFelder;
-    private int bewegungen;
     private int posX;
     private int posY;
-
-    public Bauer(String pName, boolean schwarz) {
+    Control con;
+    public Bauer(String pName, boolean schwarz, Control pCon) {
+        con = pCon;
         name = pName;
         istSchwarz = schwarz;
+        
     }
 
-    @Override
-    public void setzeBenutzteFelder(int i) {
-        benutzteFelder = i;
+     public void updatePos(){
+        con.setzePos(this);
     }
 
-    @Override
-    public int gibBenutzteFelder() {
-        return benutzteFelder;
-    }
-
-    @Override
-    public void bewegen() {
-        if (bewegungen == 0) {
-            //2 Felder nach vorne
-        }
-        else {
-            //ein Feld nach vorne
-        }
-    }
-
-    @Override
-    public void schlagen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public int gibBewegungen() {
-        return bewegungen;
-    }
+   
 
-    @Override
-    public void setzeBewegungen(int i) {
-        bewegungen = i;
-    }
+
 
     @Override
     public boolean istSchwarz() {
         return istSchwarz;
     }
 
-    @Override
-    public void entfernen() {
-        //Figur weg undso....
-    }
+ 
 
-    @Override
-    public Figur gibNaechste() {
-        //Ernie prüft wo der nächste ist und returnt den
-        return null;
-    }
+
 
     @Override
     public int gibPosX() {
@@ -103,4 +72,16 @@ public class Bauer extends Figur{
     public void machSchwarz(boolean s) {
         istSchwarz = s;
     }
+
+    @Override
+    public String gibBewegungen() {
+        String e;
+        if(this.posX==1||posX==7)
+        e= "0,1\n0,2";
+        else
+            e="0,1";
+        return e;
+    }
+
+   
 }

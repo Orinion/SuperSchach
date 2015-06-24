@@ -6,14 +6,22 @@
 package Ereigniskarten;
 
 import SchachFiguren.Figur;
+import SpielFeld.Control;
 
 /**
  *
  * @author Physik
  */
-public class ZweiFelderVor {
-    public void run(Figur pFigur)
+public class ZweiFelderVor extends Ereigniskarte {
+    
+    public ZweiFelderVor(Control con) {
+        super(con);
+    }
+
+    @Override
+    public void run()
     {
-       // Figur.bewege(2,0);
+       con.window.Alert("Rücke mit der Figur 2 Felder nach vorne.\n Befindet Sich dort eine Figur, wird sie geschlagen!");
+       con.weisAmZug= !con.weisAmZug;
     }
 }

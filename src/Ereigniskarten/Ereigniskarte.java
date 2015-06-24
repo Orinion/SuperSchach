@@ -6,15 +6,17 @@
 package Ereigniskarten;
 
 import SchachFiguren.Figur;
-
+import SpielFeld.Control;
 /**
  *
  * @author Physik
  */
 public abstract class Ereigniskarte {
-   public abstract void run(Figur pFigur);
+    Control con;
+   public abstract void run();
 
-    public Ereigniskarte() {
+    public Ereigniskarte(Control con) {
+        this.con =con;
     }
   
 }

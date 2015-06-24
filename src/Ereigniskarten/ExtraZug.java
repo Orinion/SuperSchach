@@ -6,15 +6,24 @@
 package Ereigniskarten;
 
 import SchachFiguren.Figur;
+import SpielFeld.Control;
 
 /**
  *
  * @author Markus
  */
 public class ExtraZug extends Ereigniskarte{
+    //Control con;
+    public ExtraZug(Control con) {
+        super(con);
+    }
 
     @Override
-    public void run(Figur pFigur) {
+    public void run() {
+        con.window.Alert("ExtraZug!\nDu darfst noch einmal Ziehen!");
+        con.weisAmZug = !con.weisAmZug;
+        con.Selected=null;
+        con.window.getButton().setText(" ");
         //Beliebige Figur kann sich bewegen o_O
     }
     

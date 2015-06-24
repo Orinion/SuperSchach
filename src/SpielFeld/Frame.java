@@ -1,7 +1,9 @@
 package SpielFeld;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
@@ -15,13 +17,13 @@ public class Frame extends javax.swing.JFrame {
 
     public Frame() {
         SchachRenderer r = new SchachRenderer();
-        con = new Control();
+        con = new Control(this);
         initComponents();
         this.toTable();
-        Class c = jTable1.getValueAt(0, 0).getClass();
+        
+        //Class c = jTable1.getValueAt(0, 0).getClass();
         jTable1.setDefaultRenderer(Object.class, r);
-        System.out.println(c.toString());
-
+        
         this.addWindowListener(new WindowAdapter() {
 
             @Override
@@ -31,8 +33,15 @@ public class Frame extends javax.swing.JFrame {
 
         });
     }
-
-    private void toTable() {
+    public JButton getButton()
+    {
+        return  jButton4;
+    }
+    public JTable getTable()
+    {
+        return  jTable1;
+    }
+    public void toTable() {
         String[] s = con.toString().split("\n");
         for (int j = 0; j < s.length; j++) {
             String w = s[j];
@@ -56,6 +65,8 @@ public class Frame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Super Schach v0.3");
@@ -137,6 +148,12 @@ public class Frame extends javax.swing.JFrame {
             }
         });
 
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,11 +164,15 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,11 +180,16 @@ public class Frame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2)
+                            .addComponent(jButton3)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -175,19 +201,33 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        con.test();
         this.toTable();
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
+    public void Alert(String pText)
+    {
+        
+        JOptionPane.showMessageDialog(this,pText, "ERROR", JOptionPane.INFORMATION_MESSAGE);
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JOptionPane.showMessageDialog(this, "Wegen der riesigen Nebenwirkungen "
-                + "fressen Sie die Packungs-\nbeilage und erschlagen Sie Ihren "
-                + "Arzt oder Apotheker.", "ALARM!", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Großbuchstaben = Weiß\n "
+                + "Ist Weiß am Zug:"+con.weisAmZug
+                + "", "ALARM!", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
-        char f = (char)jTable1.getValueAt(jTable1.getSelectedRow(), jTable1.getSelectedColumn());
-        System.out.println(f);
+        int i,j;
+        i=7-jTable1.getSelectedRow();
+        j=jTable1.getSelectedColumn();
+        jTextField1.setText(con.abc[j]+""+i);
     }//GEN-LAST:event_jTable1MouseReleased
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        con.move(jTextField1.getText());
+        jTextField1.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,7 +268,9 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

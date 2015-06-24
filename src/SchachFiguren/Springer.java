@@ -5,6 +5,8 @@
  */
 package SchachFiguren;
 
+import SpielFeld.Control;
+
 /**
  *
  * @author Markus
@@ -18,62 +20,32 @@ public class Springer extends Figur{
     private int bewegungen;
     private int posX;
     private int posY;
-
-    public Springer(String name, boolean schwarz) {
+    Control con;
+    public Springer(String name, boolean schwarz,Control pCon) {
+        pCon = con;
         this.name = name;
         istSchwarz = schwarz;
     }
     
-     @Override
-    public void setzeBenutzteFelder(int i) {
-        benutzteFelder = i;
+     public void updatePos(){
+        con.setzePos(this);
     }
-
-    @Override
-    public int gibBenutzteFelder() {
-        return benutzteFelder;
-    }
-
-    @Override
-    public void bewegen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void schlagen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
     
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public int gibBewegungen() {
-        return bewegungen;
-    }
+    
 
-    @Override
-    public void setzeBewegungen(int i) {
-        bewegungen = i;
-    }
+
 
     @Override
     public boolean istSchwarz() {
         return istSchwarz;
     }
 
-    @Override
-    public void entfernen() {
-        //Figur weg undso....
-    }
-
-    @Override
-    public Figur gibNaechste() {
-        //Ernie prüft wo der nächste ist und returnt den
-        return null;
-    }
 
     @Override
     public int gibPosX() {
@@ -98,5 +70,10 @@ public class Springer extends Figur{
     @Override
     public void machSchwarz(boolean s) {
         istSchwarz = s;
+    }
+
+    @Override
+    public String gibBewegungen() {
+        return "-2,1\n-1,2\n1,2\2,1\n2,-1\n1,-2\n-1,-2\n-2,-1\n";
     }
 }

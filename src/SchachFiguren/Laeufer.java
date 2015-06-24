@@ -5,6 +5,8 @@
  */
 package SchachFiguren;
 
+import SpielFeld.Control;
+
 /**
  *
  * @author Markus
@@ -17,62 +19,32 @@ public class Laeufer extends Figur{
     private int bewegungen;
     private int posX;
     private int posY;
-
-    public Laeufer(String name, boolean schwarz) {
-        this.name = name;
+    Control con;
+    public Laeufer(String pName, boolean schwarz, Control pCon) {
+        con = pCon;
+        this.name = pName;
         istSchwarz = schwarz;
     }
     
-     @Override
-    public void setzeBenutzteFelder(int i) {
-        benutzteFelder = i;
+     public void updatePos(){
+        con.setzePos(this);
     }
+     
 
-    @Override
-    public int gibBenutzteFelder() {
-        return benutzteFelder;
-    }
-
-    @Override
-    public void bewegen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void schlagen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public int gibBewegungen() {
-        return bewegungen;
-    }
-
-    @Override
-    public void setzeBewegungen(int i) {
-        bewegungen = i;
-    }
 
     @Override
     public boolean istSchwarz() {
         return istSchwarz;
     }
 
-    @Override
-    public void entfernen() {
-        //Figur weg undso....
-    }
+ 
 
-    @Override
-    public Figur gibNaechste() {
-        //Ernie prüft wo der nächste ist und returnt den
-        return null;
-    }
 
     @Override
     public int gibPosX() {
@@ -97,5 +69,10 @@ public class Laeufer extends Figur{
     @Override
     public void machSchwarz(boolean s) {
         istSchwarz = s;
+    }
+
+    @Override
+    public String gibBewegungen() {
+        return "8,8\n7,7\n6,6\n5,5\n4,4\n3,3\n2,2\n1,1\n-8,-8\n-7,-7\n-6,-6\n-5,-5\n-4,-4\n-3,-3\n-2,-2\n-1,-1\n";
     }
 }

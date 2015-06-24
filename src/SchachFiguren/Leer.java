@@ -5,6 +5,8 @@
  */
 package SchachFiguren;
 
+import SpielFeld.Control;
+
 /**
  *
  * @author Physik
@@ -16,11 +18,14 @@ public class Leer extends Figur{
     private int bewegungen;
     private int posX;
     private int posY;
-
-    public Leer() {
-        this.name = "";
+    Control con;
+    public Leer(Control pCon) {
+        con = pCon;
+        this.name = " ";
     }
-    
+    public void updatePos(){
+        con.setzePos(this);
+    }
     
     @Override
     public boolean istSchwarz() {
@@ -52,49 +57,15 @@ public class Leer extends Figur{
         posY=i;
     }
 
-    @Override
-    public void setzeBenutzteFelder(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int gibBenutzteFelder() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int gibBewegungen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setzeBewegungen(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void bewegen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void schlagen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void entfernen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Figur gibNaechste() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public String gibBewegungen() {
+        return "\n";
     }
     
 }

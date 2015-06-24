@@ -10,19 +10,19 @@ import SpielFeld.Control;
 
 /**
  *
- * @author Markus
+ * @author Physik
  */
-public class ExtraZugSelbeFigur extends Ereigniskarte{
+public class GegnerBewegen extends Ereigniskarte {
 
-    public ExtraZugSelbeFigur(Control con) {
+    public GegnerBewegen(Control con) {
         super(con);
     }
 
     @Override
     public void run() {
-        con.window.Alert("ExtraZug!\nDu darfst noch einmal mit der Selben Figur Ziehen!\n"
-                + "ist dies nicht möglich such dir eine Figur aus");
-        con.weisAmZug = !con.weisAmZug;
-    }
+        con.window.Alert("bewege eine Gegnerische Figur");
+        con.Selected=null;
+        con.window.getButton().setText(" ");
+          }
     
 }

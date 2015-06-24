@@ -5,6 +5,8 @@
  */
 package SchachFiguren;
 
+import SpielFeld.Control;
+
 /**
  *
  * @author Markus
@@ -17,62 +19,33 @@ public class Dame extends Figur {
     private int bewegungen;
     private int posX;
     private int posY;
+    Control con;
 
-    public Dame(String name, boolean schwarz) {
-        this.name = name;
+    public Dame(String pName, boolean schwarz, Control pCon) {
+        con = pCon;
+        this.name = pName;
         istSchwarz = schwarz;
     }
     
-    @Override
-    public void setzeBenutzteFelder(int i) {
-        benutzteFelder = i;
+     public void updatePos(){
+        con.setzePos(this);
     }
+     
 
-    @Override
-    public int gibBenutzteFelder() {
-        return benutzteFelder;
-    }
-
-    @Override
-    public void bewegen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void schlagen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public int gibBewegungen() {
-        return bewegungen;
-    }
+   
 
-    @Override
-    public void setzeBewegungen(int i) {
-        bewegungen = i;
-    }
 
     @Override
     public boolean istSchwarz() {
         return istSchwarz;
     }
 
-    @Override
-    public void entfernen() {
-        //Figur weg undso....
-    }
-
-    @Override
-    public Figur gibNaechste() {
-        //Ernie prüft wo der nächste ist und returnt den
-        return null;
-    }
 
     @Override
     public int gibPosX() {
@@ -97,5 +70,12 @@ public class Dame extends Figur {
     @Override
     public void machSchwarz(boolean s) {
         istSchwarz = s;
+    }
+
+    @Override
+    public String gibBewegungen() {
+        return "-8,0\n-7,0\n-6,0\n-5,0\n-4,0\n-3,0\n-2,0\n-1,0\n8,0\n7,0\n6,0\n5,0\n4,0\n3,0\n2,0\n1,0\n"//Horizontal
+                +"0,-8\n0,-7\n0,-6\n0,-5\n0,-4\n0,-3\n0,-2\n0,-1\n0,8\n0,7\n0,6\n0,5\n0,4\n0,3\n0,2\n0,1"//vertikal
+                +"8,8\n7,7\n6,6\n5,5\n4,4\n3,3\n2,2\n1,1\n-8,-8\n-7,-7\n-6,-6\n-5,-5\n-4,-4\n-3,-3\n-2,-2\n-1,-1\n";
     }
 }

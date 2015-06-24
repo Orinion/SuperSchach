@@ -16,14 +16,8 @@ public abstract class  Figur {
     public abstract int gibPosY();
     public abstract void setzePosX(int i);
     public abstract void setzePosY(int i);
-    public abstract void setzeBenutzteFelder(int i);
-    public abstract int gibBenutzteFelder();
-    public abstract int gibBewegungen();
-    public abstract void setzeBewegungen(int i);
-    public abstract void bewegen();
-    public abstract void schlagen();
-    public abstract void entfernen();
-    public abstract Figur gibNaechste();
+    public abstract String gibBewegungen();
+    public abstract void updatePos();
     @Override
     public abstract String toString();
 }
