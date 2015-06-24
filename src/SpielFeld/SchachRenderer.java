@@ -31,14 +31,13 @@ public class SchachRenderer extends DefaultTableCellRenderer {
 ////        }
 //    }
 
+    @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        //Cell x = (Cell)c;
         this.setHorizontalAlignment(JLabel.CENTER);
         if (hasFocus||c.getBackground()==Color.GREEN) {
             c.setForeground(Color.BLACK);
             c.setBackground(Color.GREEN);
-
         } else if ((row + column) % 2 != 0) {
             c.setForeground(Color.BLACK);
             c.setBackground(Color.WHITE);
