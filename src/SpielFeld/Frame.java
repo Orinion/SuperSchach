@@ -196,13 +196,15 @@ public class Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //if (JOptionPane.showConfirmDialog(this, "Wollen Sie das Programm wirklich beenden?", "Warnung", JOptionPane.YES_NO_OPTION) == 0)
+        if (JOptionPane.showConfirmDialog(this, "Wollen Sie das Programm wirklich beenden?", "Warnung", JOptionPane.YES_NO_OPTION) == 0)
             this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(JOptionPane.showConfirmDialog(this, "Sind Sie sicher, dass Sie das Feld zurücksetzen wollen?", "Achtung", JOptionPane.CANCEL_OPTION) == 0) {
         con = new Control(this);
         this.toTable();
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
     
     public void Alert(String pText)
